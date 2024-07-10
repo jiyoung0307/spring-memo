@@ -1,4 +1,4 @@
-package com.wtdpre.backend.model.timeEntity;
+package com.toy.memo.model.timeEntity;
 
 import java.time.LocalDateTime;
 

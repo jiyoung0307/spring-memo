@@ -1,9 +1,10 @@
-package com.wtdpre.backend.model.dto;
+package com.toy.memo.model.dto;
 
-import com.wtdpre.backend.model.JopPost;
 import lombok.Getter;
 
 import java.util.List;
+
+import com.toy.memo.model.JopPost;
 
 @Getter
 public class JopPostDetailRes {

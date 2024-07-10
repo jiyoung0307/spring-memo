@@ -1,6 +1,7 @@
-package com.wtdpre.backend.model.dto;
+package com.toy.memo.model.dto;
 
-import com.wtdpre.backend.model.JopPost;
+import com.toy.memo.model.JopPost;
+
 import lombok.Getter;
 
 @Getter

@@ -1,10 +1,11 @@
-package com.wtdpre.backend.controller;
+package com.toy.memo.controller;
 
-import com.wtdpre.backend.model.dto.JopPostAddReq;
-import com.wtdpre.backend.model.dto.JopPostDetailRes;
-import com.wtdpre.backend.model.dto.JopPostListRes;
-import com.wtdpre.backend.model.dto.JopPostUpdateReq;
-import com.wtdpre.backend.service.JopPostService;
+import com.toy.memo.model.dto.JopPostAddReq;
+import com.toy.memo.model.dto.JopPostDetailRes;
+import com.toy.memo.model.dto.JopPostListRes;
+import com.toy.memo.model.dto.JopPostUpdateReq;
+import com.toy.memo.service.JopPostService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,9 @@
-package com.wtdpre.backend.repository;
+package com.toy.memo.repository;
 
-import com.wtdpre.backend.model.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.toy.memo.model.Member;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {

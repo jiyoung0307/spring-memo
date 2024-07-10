@@ -1,4 +1,4 @@
-package com.wtdpre.backend.model;
+package com.toy.memo.model;
 
 import jakarta.persistence.*;
 import lombok.*;

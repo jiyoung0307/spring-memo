@@ -1,4 +1,4 @@
-package com.wtdpre.backend.model.dto;
+package com.toy.memo.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

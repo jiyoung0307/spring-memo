@@ -1,8 +1,9 @@
-package com.wtdpre.backend.model;
+package com.toy.memo.model;
 
-import com.wtdpre.backend.model.dto.JopPostAddReq;
-import com.wtdpre.backend.model.dto.JopPostUpdateReq;
-import com.wtdpre.backend.model.timeEntity.BaseTimeEntity;
+import com.toy.memo.model.dto.JopPostAddReq;
+import com.toy.memo.model.dto.JopPostUpdateReq;
+import com.toy.memo.model.timeEntity.BaseTimeEntity;
+
 import jakarta.persistence.*;
 import lombok.*;
 

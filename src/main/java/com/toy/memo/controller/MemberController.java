@@ -1,7 +1,8 @@
-package com.wtdpre.backend.controller;
+package com.toy.memo.controller;
 
-import com.wtdpre.backend.model.dto.AppliesReq;
-import com.wtdpre.backend.service.MemberService;
+import com.toy.memo.model.dto.AppliesReq;
+import com.toy.memo.service.MemberService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

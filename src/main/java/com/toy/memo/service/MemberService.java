@@ -1,12 +1,13 @@
-package com.wtdpre.backend.service;
+package com.toy.memo.service;
 
-import com.wtdpre.backend.model.Applies;
-import com.wtdpre.backend.model.JopPost;
-import com.wtdpre.backend.model.Member;
-import com.wtdpre.backend.model.dto.AppliesReq;
-import com.wtdpre.backend.repository.AppliesRepository;
-import com.wtdpre.backend.repository.JopPostRepository;
-import com.wtdpre.backend.repository.MemberRepository;
+import com.toy.memo.model.Applies;
+import com.toy.memo.model.JopPost;
+import com.toy.memo.model.Member;
+import com.toy.memo.model.dto.AppliesReq;
+import com.toy.memo.repository.AppliesRepository;
+import com.toy.memo.repository.JopPostRepository;
+import com.toy.memo.repository.MemberRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

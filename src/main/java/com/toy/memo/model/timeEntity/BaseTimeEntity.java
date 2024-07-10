@@ -1,4 +1,4 @@
-package com.wtdpre.backend.model.timeEntity;
+package com.toy.memo.model.timeEntity;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

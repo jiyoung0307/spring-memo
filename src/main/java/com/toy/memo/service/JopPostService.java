@@ -1,13 +1,14 @@
-package com.wtdpre.backend.service;
+package com.toy.memo.service;
 
-import com.wtdpre.backend.model.Company;
-import com.wtdpre.backend.model.JopPost;
-import com.wtdpre.backend.model.dto.JopPostAddReq;
-import com.wtdpre.backend.model.dto.JopPostDetailRes;
-import com.wtdpre.backend.model.dto.JopPostListRes;
-import com.wtdpre.backend.model.dto.JopPostUpdateReq;
-import com.wtdpre.backend.repository.CompanyRepository;
-import com.wtdpre.backend.repository.JopPostRepository;
+import com.toy.memo.model.Company;
+import com.toy.memo.model.JopPost;
+import com.toy.memo.model.dto.JopPostAddReq;
+import com.toy.memo.model.dto.JopPostDetailRes;
+import com.toy.memo.model.dto.JopPostListRes;
+import com.toy.memo.model.dto.JopPostUpdateReq;
+import com.toy.memo.repository.CompanyRepository;
+import com.toy.memo.repository.JopPostRepository;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

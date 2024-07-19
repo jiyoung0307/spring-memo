@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 public interface TimeAuditable {
 
-    LocalDateTime getCreatedAt();
-    LocalDateTime getUpdatedAt();
+    LocalDateTime getCrdte();
+    LocalDateTime getUpdte();
 
-    void setCreatedAt(LocalDateTime createdAt);
-    void setUpdatedAt(LocalDateTime updatedAt);
+    void setCrdte(LocalDateTime crdte);
+    void setUpdte(LocalDateTime updte);
 }

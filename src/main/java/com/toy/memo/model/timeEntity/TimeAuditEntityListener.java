@@ -9,11 +9,11 @@ public class TimeAuditEntityListener {
 
     @PrePersist
     public void prevInsert(Object obj) {
-        if(obj instanceof TimeAuditable) ((TimeAuditable) obj).setCreatedAt(LocalDateTime.now());
+        if(obj instanceof TimeAuditable) ((TimeAuditable) obj).setCrdte(LocalDateTime.now());
     }
 
     @PreUpdate
     public void prevUpdate(Object obj) {
-        if(obj instanceof TimeAuditable) ((TimeAuditable) obj).setUpdatedAt(LocalDateTime.now());
+        if(obj instanceof TimeAuditable) ((TimeAuditable) obj).setUpdte(LocalDateTime.now());
     }
 }

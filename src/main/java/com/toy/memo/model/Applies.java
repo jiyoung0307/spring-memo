@@ -1,6 +1,6 @@
 package com.toy.memo.model;
 
-import com.toy.memo.model.timeEntity.BaseTimeEntity;
+import com.toy.memo.model.timeEntity.CommonEntity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Applies extends BaseTimeEntity {
+public class Applies extends CommonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

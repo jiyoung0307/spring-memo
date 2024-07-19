@@ -12,11 +12,12 @@ import java.time.LocalDateTime;
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseTimeEntity implements TimeAuditable  {
+public class CommonEntity implements TimeAuditable {
 
+	private String crmid;
     @CreatedDate
-    private LocalDateTime createdAt;
-
+    private LocalDateTime crdte;
+    private String upmid;
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    private LocalDateTime updte;
 }

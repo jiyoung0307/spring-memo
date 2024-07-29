@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="format-detection"
+	content="telephone=no, address=no, email=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, usrr-scalable=no">
+
+<title>📜 Memo</title>
+
+<link rel="stylesheet" href="/static/bootstrap.min.css" type="text/css" />
+<style>
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+</style>
+
+</head>
+<body>
+	<div id="wrap" class="container pt-3 pb-3" style="max-width: 800px">
+		<div id="header"></div>
+		<div id="content-wrap">
+			<div id="content-top">
+				<form class="hstack gap-3">
+					<input type="text" class="form-control me-auto" name="q" th:value="${q}" placeholder="Search..." aria-label="Search..." autocomplete="off" />
+					<button type="submit" id="btn-submit" class="btn btn-outline-secondary">Submit</button>
+					<div class="vr"></div>
+					<a type="button" id="btn-reset" class="btn btn-outline-danger" href="/memo/list">Reset</a>
+					<a type="button" id="btn-new" class="btn btn-primary" href="/memo/write">New</a>
+				</form>
+			</div>
+			<hr />
+			<div id="content-body">
+				<table id="content-list" class="table">
+					<thead>
+						<tr class="table-secondary border-1">
+							<th class="text-center" style="width: 55px">No</th>
+							<th class="w-50">Title</th>
+							<th class="text-center">Serial</th>
+							<th class="text-center">Created</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:class="${stat.index % 2 == 0 ? '' : 'table-light'}" th:each="memo, stat : ${memoList}">
+							<td class="content-seq text-center" th:text="${memo.seq}"></td>
+							<td class="content-title">
+								<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" th:text="${memo.title}" th:href="${'/memo/view/' + memo.serial}"></a>
+							</td>
+							<td class="content-serial text-center" th:text="${memo.serial}">
+							</td>
+							<td class="content-crdte text-center" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd')}">
+							</td>
+						</tr>
+						<tr th:if="${memoList.size} == 0">
+							<td class="content-seq text-center">-</td>
+							<td class="content-title"><strong>No Content</strong></td>
+							<td class="content-serial text-center">-</td>
+							<td class="content-crdte text-center">-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="content-bottom"></div>
+		</div>
+		<div id="footer"></div>
+	</div>
+
+	<script>
+		
+	</script>
+</body>
+</html>

@@ -5,7 +5,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +18,3 @@ public class Member {
     private String email;
 
 }
-
-
-

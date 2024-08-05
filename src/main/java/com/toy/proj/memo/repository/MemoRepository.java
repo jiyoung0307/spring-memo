@@ -1,4 +1,4 @@
-package com.toy.memo.repository;
+package com.toy.proj.memo.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.toy.memo.model.Memo;
+import com.toy.proj.memo.model.Memo;
 
 @Repository
 public interface MemoRepository extends JpaRepository<Memo, Integer> {

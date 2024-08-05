@@ -1,10 +1,7 @@
-package com.toy.memo.model;
+package com.toy.proj.memo.model;
 
-import java.util.Objects;
-
-import com.toy.memo.common.CommonUtil;
-import com.toy.memo.model.timeEntity.CommonEntity;
-
+import com.toy.proj.common.CommonUtil;
+import com.toy.proj.common.model.timeEntity.TimeEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Memo extends CommonEntity {
+public class Memo extends TimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,24 +28,26 @@ public class Memo extends CommonEntity {
 		dirSeq = 1;
 	}
 	
-    public MemoLog toLog() {
+    public MemoLog toLog(String logCrmid) {
     	return MemoLog.builder()
     			.serial(serial)
     			.title(title)
     			.content(content)
     			.memoSeq(seq)
     			// 업데이트 내역이 없으면 생성 mid, 일자로 로그 생성
-    			.orgmid(Objects.isNull(upmid) ? crmid : upmid)
-    			.orgdte(Objects.isNull(updte) ? crdte : updte)
+    			.orgmid(crmid)
+    			.orgdte(crdte)
+				.crmid(logCrmid)
     			.build();
     }
     
-    public Memo update(Memo newMemo) {
+    public Memo update(Memo memoDto) {
     	serial = CommonUtil.getSaltString();
-    	title = newMemo.getTitle();
-    	content = newMemo.getContent();
-    	locked = newMemo.getLocked();
-    	dirSeq = newMemo.getDirSeq();
+    	title = memoDto.getTitle();
+    	content = memoDto.getContent();
+    	locked = memoDto.getLocked();
+    	dirSeq = memoDto.getDirSeq();
+		upmid = memoDto.getCrmid();
     	
     	return this;
     }

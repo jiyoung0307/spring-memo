@@ -1,4 +1,4 @@
-package com.toy.memo.common;
+package com.toy.proj.common;
 
 import java.util.Random;
 

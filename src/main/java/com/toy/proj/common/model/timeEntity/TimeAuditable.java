@@ -1,4 +1,4 @@
-package com.toy.memo.model.timeEntity;
+package com.toy.proj.common.model.timeEntity;
 
 import java.time.LocalDateTime;
 

@@ -1,16 +1,14 @@
-package com.toy.memo.service;
+package com.toy.proj.memo.service;
+
+import com.toy.proj.memo.model.Memo;
+import com.toy.proj.memo.repository.MemoLogRepository;
+import com.toy.proj.memo.repository.MemoRepository;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.stereotype.Service;
-
-import com.toy.memo.model.Memo;
-import com.toy.memo.repository.MemoLogRepository;
-import com.toy.memo.repository.MemoRepository;
-
-import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -22,19 +20,22 @@ public class MemoService {
 
     // 메모 등록 Create
     @Transactional
-    public Memo createMemo(Memo memo) {
-    	Optional<Memo> optMemo = memoRepository.findBySerial(memo.getSerial());
-    	
+    public Memo createMemo(Memo memoDto) {
+        // 기존 메모를 수정한 것인지 시리얼 일치를 통해 확인
+    	Optional<Memo> optMemo = memoRepository.findBySerial(memoDto.getSerial());
+
     	if(optMemo.isPresent()) {
+            // 수정한 메모일 경우
     		Memo oldMemo = optMemo.get();
-    		memoLogRepository.save(oldMemo.toLog());
+            // 기존 메모를 log로 만들고 수정된 메모의 작성자를 log의 작성자로 입력, DB 반영
+    		memoLogRepository.save(oldMemo.toLog(memoDto.getCrmid()));
     		
-    		// 기존 메모 업데이트 및 dirty checking으로 저장
-    		Memo newMemo = oldMemo.update(memo);
-    		return newMemo;
+    		// 기존 메모 업데이트 및 dirty checking으로 DB 반영
+    		return oldMemo.update(memoDto);
+
     	} else {
-    		
-    		return memoRepository.save(memo);
+    		// 새로 작성한 메모일 경우
+    		return memoRepository.save(memoDto);
     	}
     }
 

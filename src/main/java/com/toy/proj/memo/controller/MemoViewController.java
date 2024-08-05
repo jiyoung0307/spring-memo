@@ -1,4 +1,4 @@
-package com.toy.memo.controller;
+package com.toy.proj.memo.controller;
 
 import java.util.Objects;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.toy.memo.model.Memo;
-import com.toy.memo.service.MemoService;
+import com.toy.proj.memo.model.Memo;
+import com.toy.proj.memo.service.MemoService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

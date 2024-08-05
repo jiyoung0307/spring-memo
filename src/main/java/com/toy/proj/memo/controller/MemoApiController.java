@@ -1,23 +1,13 @@
-package com.toy.memo.controller;
+package com.toy.proj.memo.controller;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.toy.memo.model.Memo;
-import com.toy.memo.service.MemoService;
-
+import com.toy.proj.memo.model.Memo;
+import com.toy.proj.memo.service.MemoService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,19 +18,20 @@ public class MemoApiController {
 
     // url : api/memo/save
     @PostMapping("/save")
-    public ResponseEntity<Memo> createMemo(HttpServletRequest request, @RequestBody Memo memo) {
+    public ResponseEntity<Memo> createMemo(HttpServletRequest request, @RequestBody Memo memoDto) {
     	
     	// TODO 임시 아이디를 IP로 사용
-    	String ip = request.getHeader("X-FORWARDED-FOR");
-    	
+//    	String ip = request.getHeader("X-FORWARDED-FOR");
+    	String ip = "222.222.222.222";
+
     	if(ip == null) {
     		ip = request.getRemoteAddr();
     	}
+
+        memoDto.setCrmid(ip);
+        memoDto.setUpmid(ip);
     	
-    	memo.setCrmid(ip);
-    	memo.setUpmid(ip);
-    	
-    	Memo newMemo = memoService.createMemo(memo);
+    	Memo newMemo = memoService.createMemo(memoDto);
     	return ResponseEntity.ok(newMemo);
     }
 

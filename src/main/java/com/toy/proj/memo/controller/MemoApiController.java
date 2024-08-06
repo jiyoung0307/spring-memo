@@ -21,10 +21,9 @@ public class MemoApiController {
     public ResponseEntity<Memo> createMemo(HttpServletRequest request, @RequestBody Memo memoDto) {
     	
     	// TODO 임시 아이디를 IP로 사용
-//    	String ip = request.getHeader("X-FORWARDED-FOR");
-    	String ip = "222.222.222.222";
+    	String ip = request.getHeader("X-FORWARDED-FOR");
 
-    	if(ip == null) {
+        if(ip == null) {
     		ip = request.getRemoteAddr();
     	}
 

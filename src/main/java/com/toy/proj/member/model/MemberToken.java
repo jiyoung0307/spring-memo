@@ -7,11 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Member extends TimeEntity {
+public class MemberToken extends TimeEntity {
 
     @Id
-    private String id;
-    private String password;
-    private String email;
-    private String group; // groupA,groupB,groupC....
+    private int seq;
+    private String value;
+    private String type;
 }

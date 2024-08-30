@@ -2,6 +2,7 @@ package com.toy.proj.member.model;
 
 import com.toy.proj.common.model.timeEntity.TimeEntity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,4 +15,7 @@ public class Member extends TimeEntity {
     private String password;
     private String email;
     private String group; // groupA,groupB,groupC....
+    private String status; // YYYYY, NNNNN, AAAAA....
+    @Transient
+    private char[] statusCharArray;
 }

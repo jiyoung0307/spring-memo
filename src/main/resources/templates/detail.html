@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:text="${'Memo - ' + memo.title}"></title>
-	<div th:replace="~{fragment/head.html :: frag-head}" ></div>
+	<div th:replace="~{fragment/head.html :: frag-headTitle(${'Memo - ' + memo.title})}" ></div>
 </head>
 <body>
 	<div id="wrap" class="container pt-3 pb-3">

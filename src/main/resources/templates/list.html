@@ -4,7 +4,7 @@
 	<title th:replace="~{fragment/head.html :: frag-head}" ></title>
 </head>
 <body>
-	<div id="wrap" class="container pt-3 pb-3" style="max-width: 800px">
+	<div id="wrap" class="container pt-3 pb-3">
 		<div id="header"></div>
 		<div id="content-wrap">
 			<div id="content-top">
@@ -22,18 +22,15 @@
 					<thead>
 						<tr class="table-secondary border-1">
 							<th class="text-center" style="width: 55px">No</th>
-							<th class="w-50">Title</th>
-							<th class="text-center">Serial</th>
-							<th class="text-center">Created</th>
+							<th>Title</th>
+							<th class="text-center" style="width: 125px">Created</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:class="${stat.index % 2 == 0 ? '' : 'table-light'}" th:each="memo, stat : ${memoList}">
 							<td class="content-seq text-center" th:text="${stat.index + 1}"></td>
 							<td class="content-title">
-								<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" th:text="${memo.title}" th:href="${'/memo/view/' + memo.serial}"></a>
-							</td>
-							<td class="content-serial text-center" th:text="${memo.serial}">
+								<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" th:text="${memo.title}" th:href="${'/memo/view/' + memo.seq}"></a>
 							</td>
 							<td class="content-crdte text-center" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd')}">
 							</td>
@@ -41,7 +38,6 @@
 						<tr th:if="${memoList.size} == 0">
 							<td class="content-seq text-center">-</td>
 							<td class="content-title"><strong>No Content</strong></td>
-							<td class="content-serial text-center">-</td>
 							<td class="content-crdte text-center">-</td>
 						</tr>
 					</tbody>

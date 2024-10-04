@@ -5,9 +5,9 @@
 </head>
 <body>
 	<div id="loading_box" style="width: 100%; height: 100%; position: absolute; display: none; justify-content: center; align-items: center; background-color: #ccc4;">
-        <img src="/static/images/loading_pen.gif" style="width: 50px;">
+        <img src="/static/images/loading_pen.gif" style="width: 75px;">
     </div>
-	<div id="wrap" class="container pt-3 pb-3" style="max-width: 800px">
+	<div id="wrap" class="container pt-3 pb-3">
 		<div id="header">
 			<div class="btn-toolbar mb-3 justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 				<div class="btn-group" role="group" aria-label="First group">
@@ -34,6 +34,7 @@
 				<input name="locked" style="display: none" value="false" />
 				<input name="dir_seq" style="display: none" value="1" />
 				<input name="serial" style="display: none" th:value="${memo.serial}" />
+				<input name="seq" style="display: none" th:value="${memo.seq}" />
 			</div>
 			<div id="content-bottom"></div>
 		</form>
@@ -73,8 +74,8 @@
 					body: JSON.stringify(param),
 			}).then(res => res.json())
 			.then(data => {
-				if(data?.serial !== '' || data?.serial !== undefined) {
-					location.replace('/memo/view/' + data.serial);
+				if(data?.seq !== '' || data?.seq !== undefined) {
+					location.replace('/memo/view/' + data.seq);
 				}
 				// TODO error 처리
 				

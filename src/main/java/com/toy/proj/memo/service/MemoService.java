@@ -22,7 +22,7 @@ public class MemoService {
     @Transactional
     public Memo createMemo(Memo memoDto) {
         // 기존 메모를 수정한 것인지 시리얼 일치를 통해 확인
-    	Optional<Memo> optMemo = memoRepository.findBySerial(memoDto.getSerial());
+    	Optional<Memo> optMemo = memoRepository.findById(memoDto.getSeq());
 
     	if(optMemo.isPresent()) {
             // 수정한 메모일 경우
@@ -55,8 +55,8 @@ public class MemoService {
     }
 
     // 메모 상세 내용 Detail
-    public Memo getMemo(String serial) {
-        Optional<Memo> optMemo = memoRepository.findBySerial(serial);
+    public Memo getMemo(Integer seq) {
+        Optional<Memo> optMemo = memoRepository.findById(seq);
 
         if(optMemo.isEmpty()) {
         	throw new IllegalArgumentException("not found Memo");

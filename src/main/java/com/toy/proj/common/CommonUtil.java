@@ -4,12 +4,12 @@ import java.util.Random;
 
 public interface CommonUtil {
 	
-	public static String getSaltString() {
-		String SALTCHARS = "abcdefghijklmnopqrstuvwxyz1234567890";
+	public static String getSaltString(int x) {
+		String SALTCHARS = "1234567890abcdefghijklmnopqrstuvwxyz";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         
-        while (salt.length() < 7) { // length of the random string.
+        while (salt.length() < x) { // length of the random string.
         	
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
@@ -17,5 +17,9 @@ public interface CommonUtil {
         
         return salt.toString();
 	}
+
+    public static String getSaltString() {
+        return getSaltString(7);
+    }
 
 }

@@ -53,9 +53,9 @@ public class MemoApiController {
     }
 
     // url : api/memo/view/{serial}
-    @GetMapping("/view/{serial}")
-    public ResponseEntity<Memo> getmemo(@PathVariable String serial) {
-    	return ResponseEntity.ok(memoService.getMemo(serial));
+    @GetMapping("/view/{seq}")
+    public ResponseEntity<Memo> getmemo(@PathVariable Integer seq) {
+    	return ResponseEntity.ok(memoService.getMemo(seq));
     }
 
     // url : api/memo/search?q=something

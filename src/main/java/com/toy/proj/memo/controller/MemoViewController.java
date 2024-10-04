@@ -36,10 +36,10 @@ public class MemoViewController {
     	return "list";
     }
     
-    @GetMapping("/view/{serial}")
-    public String memoView(Model model, @PathVariable String serial) {
+    @GetMapping("/view/{seq}")
+    public String memoView(Model model, @PathVariable Integer seq) {
     	
-    	Memo memo = memoService.getMemo(serial);
+    	Memo memo = memoService.getMemo(seq);
     	
     	if(Objects.isNull(memo)) {
     		memo = new Memo();
@@ -59,10 +59,10 @@ public class MemoViewController {
     	return "write";
     }
     
-    @GetMapping("/edit/{serial}")
-    public String editView(Model model, @PathVariable String serial) {
+    @GetMapping("/edit/{seq}")
+    public String editView(Model model, @PathVariable Integer seq) {
     	
-    	model.addAttribute("memo", memoService.getMemo(serial));
+    	model.addAttribute("memo", memoService.getMemo(seq));
     	return "write";
     }
     

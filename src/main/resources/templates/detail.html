@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:replace="~{fragment/head.html :: frag-head}" ></title>
+	<title th:text="${'Memo - ' + memo.title}"></title>
+	<div th:replace="~{fragment/head.html :: frag-head}" ></div>
 </head>
 <body>
-	<div id="wrap" class="container pt-3 pb-3" style="max-width: 800px">
+	<div id="wrap" class="container pt-3 pb-3">
 		<div id="header">
 			<div class="btn-toolbar mb-3 justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 				<div class="btn-group" role="group" aria-label="First group">
 					<a type="button" class="btn btn-outline-secondary" href="/memo/list">Back</a>
 				</div>
 				<div class="btn-group" role="group" aria-label="Second group">
-					<a type="button" class="btn btn-warning" th:href="'/memo/edit/' + ${memo.serial}">Edit</a>
+					<a type="button" class="btn btn-warning" th:href="'/memo/edit/' + ${memo.seq}">Edit</a>
 				</div>
 			</div>
 		</div>
@@ -19,9 +20,9 @@
 		<div id="content-wrap">
 			<div id="content-top" class="d-flex justify-content-between align-items-center">
 				<div id="content-title" class="fs-5 fw-bold" th:text="${memo.title}"></div>
-				<div>
-					<div id="content-serial" class="d-inline me-3" th:text="${memo.serial}"></div>
-					<div id="content-created" class="d-inline" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd HH:mm')}"></div>
+				<div class="ms-3 text-end">
+					<div id="content-serial" th:text="${memo.serial}"></div>
+					<div id="content-created" style="min-width: 150px;" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd HH:mm')}"></div>
 				</div>
 			</div>
 			<hr />

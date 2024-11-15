@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<div th:replace="~{fragment/head.html :: frag-headTitle(${'Memo - ' + memo.title})}" ></div>
+	<div th:replace="~{fragment/head.html :: frag-headTitle(${memo.title + ' | Memo'})}" ></div>
 </head>
 <body>
 	<div id="wrap" class="container pt-3 pb-3">
@@ -17,11 +17,12 @@
 		</div>
 		<hr />
 		<div id="content-wrap">
-			<div id="content-top" class="d-flex justify-content-between align-items-center">
-				<div id="content-title" class="fs-5 fw-bold" th:text="${memo.title}"></div>
-				<div class="ms-3 text-end">
-					<div id="content-serial" th:text="${memo.serial}"></div>
-					<div id="content-created" style="min-width: 150px;" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd HH:mm')}"></div>
+			<div id="content-top">
+				<div id="content-title" class="fs-5 fw-bold text-break" th:text="${memo.title}"></div>
+				<div class="mt-2 text-end">
+					<span id="link-copy" class="separator" onclick="copyUrl()">copy</span>
+					<span id="content-serial" class="separator" th:text="${memo.serial}"></span>
+					<span id="content-created" style="min-width: 150px;" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd HH:mm')}"></span>
 				</div>
 			</div>
 			<hr />
@@ -46,7 +47,33 @@
 	</div>
 
 	<script>
-		
+		function copyUrl() {
+			const url = window.location.href; // 현재 페이지 URL 가져오기
+			const copyTag = document.querySelector("#link-copy");
+
+			const textarea = document.createElement("textarea");
+			textarea.value = url;
+			document.body.appendChild(textarea);
+			textarea.select();
+			textarea.setSelectionRange(0, 99999); // 모바일 지원을 위한 설정
+
+			try {
+				const successful = document.execCommand("copy");
+				if (successful) {
+					copyTag.innerText = 'copied!';
+
+					setTimeout(() => {
+						copyTag.innerText = 'copy';
+					}, 5000);
+				} else {
+					alert("URL 복사에 실패했습니다.");
+				}
+			} catch (err) {
+				console.error("URL 복사 실패:", err);
+			}
+
+			document.body.removeChild(textarea);
+		}
 	</script>
 </body>
 </html>

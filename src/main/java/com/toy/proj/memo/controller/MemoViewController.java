@@ -39,15 +39,7 @@ public class MemoViewController {
     @GetMapping("/view/{seq}")
     public String memoView(Model model, @PathVariable Integer seq) {
     	
-    	Memo memo = memoService.getMemo(seq);
-    	
-    	if(Objects.isNull(memo)) {
-    		memo = new Memo();
-    		memo.setContent("존재하지 않는 메모입니다. 다시 시도해주세요.");
-    		memo.setSerial("");
-    	}
-    	
-		model.addAttribute("memo", memo);
+		model.addAttribute("memo", memoService.getMemo(seq));
 		
     	return "detail";
     }

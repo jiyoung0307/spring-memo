@@ -58,11 +58,13 @@ public class MemoService {
     public Memo getMemo(Integer seq) {
         Optional<Memo> optMemo = memoRepository.findById(seq);
 
-        if(optMemo.isEmpty()) {
-        	throw new IllegalArgumentException("not found Memo");
-        }
-        
-        return optMemo.get();
+        return optMemo.orElseGet(() -> {
+            Memo memo = new Memo();
+            memo.setTitle("존재하지 않는 메모");
+            memo.setContent("존재하지 않는 메모입니다. 다시 시도해주세요.");
+            memo.setSerial("");
+            return memo;
+        });
     }
 
     // 메모 수정 로그 TODO

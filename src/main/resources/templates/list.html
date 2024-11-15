@@ -28,11 +28,11 @@
 					</thead>
 					<tbody>
 						<tr th:class="${stat.index % 2 == 0 ? '' : 'table-light'}" th:each="memo, stat : ${memoList}">
-							<td class="content-seq text-center" th:text="${stat.index + 1}"></td>
-							<td class="content-title">
+							<td class="content-seq text-center align-middle" th:text="${stat.index + 1}"></td>
+							<td class="content-title text-break">
 								<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" th:text="${memo.title}" th:href="${'/memo/view/' + memo.seq}"></a>
 							</td>
-							<td class="content-crdte text-center" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd')}">
+							<td class="content-crdte text-center align-middle" th:text="${#temporals.format(memo.crdte, 'yyyy-MM-dd')}">
 							</td>
 						</tr>
 						<tr th:if="${memoList.size} == 0">
